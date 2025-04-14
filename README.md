@@ -8,7 +8,7 @@ Lucas Amorim, 000000 - Engenharia de Software
 ## Papéis ou tipos de usuário da aplicação
 
 - Cliente
-- ItemLocadora (Abstrata)
+- ItemLocadora: Abstrata
 - Filme (Herda de ItemLocadora)
 - Jogo (Herda de ItemLocadora)
 - Locacao
@@ -22,3 +22,41 @@ Lucas Amorim, 000000 - Engenharia de Software
 - O valor do aluguel será calculado diferente para cada item (filme/jogo).
 - Um item pode ser reservado.
 
+### Cliente
+- nome <<String>>
+- cpf <<String>>
+- locacoes <<List<Locacao>>>
+- cadastrarCliente()
+- adicionarLocacao()
+- listarLocacoes()
+
+### ItemLocadora
+- titulo <<String>>
+- disponivel <<Boolean>>
+- dataDevolucao <<LocalDate>>
+- calcularValorAluguel(): Abstrato
+- exibirDetalhes(): Abstrato
+
+### Filme
+- genero <<String>>
+- classificacaoIndicativa <<String>>
+- calcularValorAluguel()
+- exibirDetalhes()
+
+### Jogo
+- plataforma <<String>>
+- calcularValorAluguel()
+- exibirDetalhes()
+
+  ### Locacao
+  - cliente <<Cliente>>
+  - item <<ItemLocadora>>
+  - dataLocacao <<LocalDate>>
+  - dataDevolucao <<LocalDate>>
+  - calcularMulta()
+ 
+  ### Reservavel
+  - reservar(cliente <<Cliente>>)
+ 
+  ### Digital
+  - enviarLink(email <<String>>)
