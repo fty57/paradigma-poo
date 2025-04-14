@@ -2,8 +2,8 @@
 Este documento apresenta a implementação de um sistema de locadora utilizando Programação Orientada a Objetos (POO) em Kotlin.
 
 ## Membros da equipe
-Francisco Álisson Véras Damasceno, 586622 - Engenharia de Software
-Lucas Amorim, 000000 - Engenharia de Software
+- Francisco Álisson Véras Damasceno, 586622 - Engenharia de Software
+- Lucas Amorim, 000000 - Engenharia de Software
 
 ## Papéis ou tipos de usuário da aplicação
 
