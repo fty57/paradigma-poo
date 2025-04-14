@@ -23,40 +23,40 @@ Lucas Amorim, 000000 - Engenharia de Software
 - Um item pode ser reservado.
 
 ### Cliente
-- nome <<String>>
-- cpf <<String>>
-- locacoes <<List<Locacao>>>
+- nome: String
+- cpf: String
+- locacoes: List - Locacao - 
 - cadastrarCliente()
 - adicionarLocacao()
 - listarLocacoes()
 
 ### ItemLocadora
-- titulo <String>
-- disponivel <Boolean>
-- dataDevolucao <<LocalDate>>
+- titulo: String
+- disponivel: Boolean
+- dataDevolucao: LocalDate
 - calcularValorAluguel(): Abstrato
 - exibirDetalhes(): Abstrato
 
 ### Filme
-- genero <<String>>
-- classificacaoIndicativa <<String>>
+- genero: String
+- classificacaoIndicativa: String
 - calcularValorAluguel()
 - exibirDetalhes()
 
 ### Jogo
-- plataforma <<String>>
+- plataforma: String
 - calcularValorAluguel()
 - exibirDetalhes()
 
   ### Locacao
-  - cliente <<Cliente>>
-  - item <<ItemLocadora>>
-  - dataLocacao <<LocalDate>>
-  - dataDevolucao <<LocalDate>>
+  - cliente: Cliente
+  - item: ItemLocadora
+  - dataLocacao: LocalDate
+  - dataDevolucao: LocalDate
   - calcularMulta()
  
   ### Reservavel
-  - reservar(cliente <<Cliente>>)
+  - reservar(cliente: Cliente)
  
   ### Digital
-  - enviarLink(email <<String>>)
+  - enviarLink(email: String)
