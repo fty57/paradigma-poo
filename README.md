@@ -31,8 +31,8 @@ Lucas Amorim, 000000 - Engenharia de Software
 - listarLocacoes()
 
 ### ItemLocadora
-- titulo <<String>>
-- disponivel <<Boolean>>
+- titulo <String>
+- disponivel <Boolean>
 - dataDevolucao <<LocalDate>>
 - calcularValorAluguel(): Abstrato
 - exibirDetalhes(): Abstrato
