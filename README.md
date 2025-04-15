@@ -3,7 +3,7 @@ Este documento apresenta a implementação de um sistema de locadora utilizando 
 
 ## Membros da equipe
 - Francisco Álisson Véras Damasceno, 586622 - Engenharia de Software
-- Lucas Amorim, 000000 - Engenharia de Software
+- José Lucas Amorim Silva, 586623 - Engenharia de Software
 
 ## Papéis ou tipos de usuário da aplicação
 
@@ -23,17 +23,20 @@ Este documento apresenta a implementação de um sistema de locadora utilizando 
 - Um item pode ser reservado.
 
 ### Cliente
+- idCliente: Int
 - nome: String
 - cpf: String
-- locacoes: List - Locacao - 
+- email: String
+- locacoes: List: Locacao 
 - cadastrarCliente()
 - adicionarLocacao()
 - listarLocacoes()
 
 ### ItemLocadora
+- idItem: Int
 - titulo: String
 - disponivel: Boolean
-- dataDevolucao: LocalDate
+- dataDevolucao: Date / String
 - calcularValorAluguel(): Abstrato
 - exibirDetalhes(): Abstrato
 
@@ -48,15 +51,15 @@ Este documento apresenta a implementação de um sistema de locadora utilizando 
 - calcularValorAluguel()
 - exibirDetalhes()
 
-  ### Locacao
-  - cliente: Cliente
-  - item: ItemLocadora
-  - dataLocacao: LocalDate
-  - dataDevolucao: LocalDate
-  - calcularMulta()
- 
-  ### Reservavel
-  - reservar(cliente: Cliente)
- 
-  ### Digital
-  - enviarLink(email: String)
+### Locacao
+- cliente: Cliente
+- item: ItemLocadora
+- dataLocacao: Date
+- dataDevolucao: Date
+- calcularMulta()
+
+### Físico 
+- reservarFisico(cliente: Cliente, locacao: Locacao)
+
+### Digital
+- reservarDigital(emailCliente: String, locacao: Locacao)
