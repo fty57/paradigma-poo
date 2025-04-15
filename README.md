@@ -32,7 +32,7 @@ Este documento apresenta a implementação de um sistema de locadora utilizando 
 - adicionarLocacao()
 - listarLocacoes()
 
-### ItemLocadora
+### ItemLocadora : Interface
 - idItem: Int
 - titulo: String
 - disponivel: Boolean
@@ -57,9 +57,3 @@ Este documento apresenta a implementação de um sistema de locadora utilizando 
 - dataLocacao: Date
 - dataDevolucao: Date
 - calcularMulta()
-
-### Físico 
-- reservarFisico(cliente: Cliente, locacao: Locacao)
-
-### Digital
-- reservarDigital(emailCliente: String, locacao: Locacao)
