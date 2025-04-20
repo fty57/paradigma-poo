@@ -1,4 +1,5 @@
 import ItemLocadora
+import java.time.LocalDate
 
 class Jogo(
     // Atributos específicos de Jogo
@@ -9,7 +10,7 @@ class Jogo(
     override val idItem: Int,
     override val titulo: String,
     override var disponivel: Boolean = true,
-    override var dataDevolucao: String? = null
+    override var dataDevolucao: LocalDate? = null
 ) : ItemLocadora {
     override fun calcularValorAluguel(dias: Int) {
         println("O valor do aluguel de ${titulo} é R$ ${5.0 * dias}")

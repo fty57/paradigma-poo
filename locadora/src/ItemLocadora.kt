@@ -4,7 +4,8 @@ interface ItemLocadora {
     val idItem: Int
     val titulo: String
     var disponivel: Boolean
-    var dataDevolucao: String?
+    var dataDevolucao: LocalDate?
+
 
     // Polimorfismo
     // Essas funções são diferentes em Jogo / Filme
@@ -20,7 +21,7 @@ interface ItemLocadora {
             dataDevolucao = null
         }else{
             disponivel = false
-            dataDevolucao = LocalDate.now().plusDays(dias.toLong()).toString();
+            dataDevolucao = LocalDate.now().plusDays(dias.toLong());
         }
     }
 

@@ -15,14 +15,14 @@ fun main() {
 
     jogo1.exibirDetalhes()
 
-    jogo1.alugar(4)
-
     jogo1.exibirDetalhes()
 */
+
     val cliente1 = Cliente(idCliente = 1, nome = "Lucas", cpf = "123.456.789-00", email = "0@g.com")
     val itemLocadora1 = filme1
     val locacao1 = Locacao(cliente = cliente1, item = itemLocadora1)
     cliente1.adicionarLocacao(locacao1)
+    filme1.alugar(11)
     //cliente1.removerLocacao(locacao1)
     cliente1.listarLocacoes()
 

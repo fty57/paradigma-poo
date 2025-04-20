@@ -1,19 +1,22 @@
+import utils.Utils
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-
-val hoje = LocalDate.now()
-val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-val dataAtualFormatada = hoje.format(formatter)
 
 class Locacao(
     private val cliente: Cliente,
     private val item: ItemLocadora,
-    private val dataLocacao: String = dataAtualFormatada,
+    private val dataLocacao: LocalDate = LocalDate.now()
 ){
 
     fun getCliente(): Cliente = cliente
     fun getItem(): ItemLocadora = item
-    fun getDataLocacao(): String = dataLocacao
-    fun getDataDevolucao(): String? = item.dataDevolucao
+    fun getDataLocacao(): String = Utils().formatarData(dataLocacao)
+    fun getDataDevolucao(): String? {
+        val dataDevolucao = item.dataDevolucao
+        return if (dataDevolucao != null) {
+            Utils().formatarData(dataDevolucao)
+        } else {
+            null
+        }
+    }
 }
 

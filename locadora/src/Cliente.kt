@@ -25,6 +25,7 @@ class Cliente(
         locacoes.remove(locacao)
     }
 
+
     fun getIdCliente(): Int = idCliente
     fun getNome(): String = nome
     fun getCpf(): String = cpf
