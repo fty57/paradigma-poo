@@ -14,8 +14,10 @@ class Cliente(
             println("Nenhuma locação disponível de $nome")
         }else{
             locacoes.forEach{locacao ->
-                println("Locações de ${locacao.getCliente().getNome()}:")
-                println("Item alugado: ${locacao.getItem().titulo}")
+                println("Locações de ${locacao.getCliente()?.getNome()}:")
+                locacao.getItens().forEach { item ->
+                    println("Item alugado: ${item.titulo}")
+                }
                 println("Alugado no dia: ${locacao.getDataLocacao()}")
                 println("A ser devolvido no dia: ${locacao.getDataDevolucao()}")
             }
@@ -23,6 +25,7 @@ class Cliente(
     }
     fun removerLocacao(locacao: Locacao) {
         locacoes.remove(locacao)
+
     }
 
 

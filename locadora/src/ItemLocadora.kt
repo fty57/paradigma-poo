@@ -31,4 +31,23 @@ interface ItemLocadora {
         disponivel = true
         dataDevolucao = null
     }
+
+
+
+    fun listarItensDisponiveis(itens: List<ItemLocadora>){
+        println("Mídias disponíveis:")
+        itens.forEach{item ->
+            if(item.disponivel){
+                println(item.titulo)
+            }
+        }
+    }
+    fun listarItensIndisponiveis(itens: List<ItemLocadora>){
+        println("Mídias indisponíveis:")
+        itens.forEach{item ->
+            if(!item.disponivel){
+                println(item.titulo)
+            }
+        }
+    }
 }

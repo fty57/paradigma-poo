@@ -2,21 +2,21 @@ import utils.Utils
 import java.time.LocalDate
 
 class Locacao(
-    private val cliente: Cliente,
-    private val item: ItemLocadora,
+    private var cliente: Cliente?,
+    private val itens: List<ItemLocadora>,
     private val dataLocacao: LocalDate = LocalDate.now()
 ){
 
-    fun getCliente(): Cliente = cliente
-    fun getItem(): ItemLocadora = item
+    fun getCliente(): Cliente? = cliente
+    fun getItens(): List<ItemLocadora> = itens
     fun getDataLocacao(): String = Utils().formatarData(dataLocacao)
-    fun getDataDevolucao(): String? {
-        val dataDevolucao = item.dataDevolucao
-        return if (dataDevolucao != null) {
-            Utils().formatarData(dataDevolucao)
-        } else {
-            null
+
+    fun getDataDevolucao(): List<String?> {
+        return itens.map { item ->
+            item.dataDevolucao?.let { Utils().formatarData(it) }
         }
     }
+
+
 }
 
