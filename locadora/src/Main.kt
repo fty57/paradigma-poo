@@ -23,12 +23,11 @@ fun main() {
 
     val itens = mutableListOf<ItemLocadora>(filme1, jogo1)
 
-    //TÍTULO ALUGADO MANUALMENTE
-    val itensLocados = mutableListOf<ItemLocadora>()
-    val locacao1 = Locacao(cliente = cliente1, itens = itensLocados)
-    cliente1.adicionarLocacao(locacao1)
-    filme1.alugar(11)
-
+    //TESTE TÍTULO ALUGADO MANUALMENTE
+//    val itensLocados = mutableListOf<ItemLocadora>(filme1)
+//    val locacao1 = Locacao(cliente = cliente1, itens = itensLocados)
+//    cliente1.adicionarLocacao(locacao1)
+//    filme1.alugar(11)
     //jogo1.alugar(15)
 
     println("🎬🎮 Bem-vindo(a) ao Locaí! 🎮🎬")
@@ -37,12 +36,14 @@ fun main() {
     var opcao: Int
 
     do {
-        println("Digite o número correspondente à ação:\n" +
-                "1. Listar títulos disponíveis\n" +
-                "2. Listar títulos indisponíveis\n" +
-                "3. Alugar título\n" +
-                "4. Menu Admin\n" +
-                "5. Sair")
+        println(
+            "Digite o número correspondente à ação:\n" +
+                    "1. Listar títulos disponíveis\n" +
+                    "2. Listar títulos indisponíveis\n" +
+                    "3. Alugar título\n" +
+                    "4. Menu Admin\n" +
+                    "5. Sair"
+        )
 
         opcao = readLine()?.toIntOrNull() ?: -1
 
@@ -50,21 +51,38 @@ fun main() {
             1 -> Locadora().listarItens(itens, true)
             2 -> Locadora().listarItens(itens, false)
             3 -> {
-                // lógica para alugar título
+                val disponiveis = Locadora().listarItens(itens, true)
+
+                if (!disponiveis.isEmpty()) {
+
+                    println("Digite os números dos títulos que deseja alugar, separados por vírgula (ex: 1,2):")
+                    val escolhas = readLine()
+                        ?.split(",")
+                        ?.mapNotNull { it.trim().toIntOrNull() }
+                        ?.filter { it in 1..disponiveis.size }
+
+                    if (escolhas.isNullOrEmpty()) {
+                        println("Nenhuma escolha válida feita.\n")
+                    } else {
+                        for (numero in escolhas) {
+                            val itemEscolhido = disponiveis[numero - 1]
+                            if (itemEscolhido.disponivel) {
+                                itemEscolhido.alugar(7) // Alugar por 7 dias
+                                println("Você alugou: ${itemEscolhido.titulo}")
+                            } else {
+                                println("O título ${itemEscolhido.titulo} não está disponível.")
+                            }
+                        }
+                    }
+                }
             }
             4 -> {
-                // lógica do menu Outras Funções de Admin
+                // lógica do menu Admin
             }
             5 -> println("Saindo... Até logo! 👋")
             else -> println("Opção inválida. Tente novamente.\n")
         }
     } while (opcao != 5)
-
-    //Opção 3 do Menu - Colocar em função
-    //val itensLocados = mutableListOf<ItemLocadora>()
-    //val locacao1 = Locacao(cliente = cliente1, itens = itensLocados)
-    //cliente1.adicionarLocacao(locacao1)
-    //filme1.alugar(11)
 
     //Opção 4 do Menu - Menu Admin - Funções que os admins podem fazer, por exemplo: listar locações de determinado cliente
 

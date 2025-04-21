@@ -11,8 +11,8 @@ class Utils {
     }
 }
 
-class Locadora{
-    fun listarItens(itens: List<ItemLocadora>, mostrarDisponiveis: Boolean) {
+class Locadora {
+    fun listarItens(itens: List<ItemLocadora>, mostrarDisponiveis: Boolean): List<ItemLocadora> {
         val filtrados = if (mostrarDisponiveis) {
             itens.filter { it.disponivel }
         } else {
@@ -31,10 +31,12 @@ class Locadora{
             } else {
                 println("Mídias indisponíveis:")
             }
-            filtrados.forEach { item ->
-                println(item.titulo)
+            filtrados.forEachIndexed { index, item ->
+                println("${index + 1}. ${item.titulo}")
             }
             println()
         }
+
+        return filtrados
     }
 }
