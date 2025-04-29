@@ -5,30 +5,24 @@ import ItemLocadora
 import Locacao
 import utils.Locadora
 
-
 fun main() {
 
+    val filme1 = Filme(idItem = 1, genero = "Infantil", classificacaoIndicativa = "Livre", titulo = "Aventuras de Patolino", disponivel = true)
+    val filme2 = Filme(idItem = 2, genero = "Ação", classificacaoIndicativa = "14", titulo = "Matrix", disponivel = true)
 
-    val filme1 = Filme(idItem = 1, genero = "Ação", classificacaoIndicativa = "Livre", titulo = "Aventuras de Patolino", disponivel = true)
-    //filme1.alugar(4)
-
-    val jogo1 = Jogo(idItem = 2, plataforma = "PS4", tipoMidia = "Digital", titulo = "Sly Cooper 4", disponivel = true)
-/*
-    jogo1.exibirDetalhes()
-
-    jogo1.exibirDetalhes()
-*/
+    val jogo1 = Jogo(idItem = 3, plataforma = "PS4", tipoMidia = "Digital", titulo = "Sly Cooper 4", disponivel = true)
+    val jogo2 = Jogo(idItem = 4, plataforma = "XBOX", tipoMidia = "Física", titulo = "God of War", disponivel = true)
 
     val cliente1 = Cliente(idCliente = 1, nome = "Lucas", cpf = "123.456.789-00", email = "0@g.com")
 
-    val itens = mutableListOf<ItemLocadora>(filme1, jogo1)
+    val itens = mutableListOf<ItemLocadora>(filme1, filme2, jogo1, jogo2)
 
-    //TESTE TÍTULO ALUGADO MANUALMENTE
-//    val itensLocados = mutableListOf<ItemLocadora>(filme1)
-//    val locacao1 = Locacao(cliente = cliente1, itens = itensLocados)
-//    cliente1.adicionarLocacao(locacao1)
-//    filme1.alugar(11)
-    //jogo1.alugar(15)
+    // TESTE TÍTULO ALUGADO MANUALMENTE
+    // val itensLocados = mutableListOf<ItemLocadora>(filme1)
+    // val locacao1 = Locacao(cliente = cliente1, itens = itensLocados)
+    // cliente1.adicionarLocacao(locacao1)
+    // filme1.alugar(11)
+    // jogo1.alugar(15)
 
     println("🎬🎮 Bem-vindo(a) ao Locaí! 🎮🎬")
     println("Aqui você encontra os melhores filmes e jogos para alugar.\n")
@@ -66,11 +60,11 @@ fun main() {
                     } else {
                         for (numero in escolhas) {
                             val itemEscolhido = disponiveis[numero - 1]
-                            if (itemEscolhido.disponivel) {
+                            if (itemEscolhido.getDisponibilidade()) {
                                 itemEscolhido.alugar(7) // Alugar por 7 dias
-                                println("Você alugou: ${itemEscolhido.titulo}")
+                                println("Você alugou: ${itemEscolhido.getTítulo()}")
                             } else {
-                                println("O título ${itemEscolhido.titulo} não está disponível.")
+                                println("O título ${itemEscolhido.getTítulo()} não está disponível.")
                             }
                         }
                     }

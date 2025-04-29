@@ -6,47 +6,43 @@ interface ItemLocadora {
     var disponivel: Boolean
     var dataDevolucao: LocalDate?
 
+    fun getTítulo(): String = titulo
+    fun getDisponibilidade(): Boolean = disponivel
+    fun setDisponibilidade(disponivel: Boolean){ this.disponivel = disponivel }
+    fun getDataDeDevolucao(): LocalDate? = dataDevolucao
+    fun setDataDeDevolucao(dataDevolucao: LocalDate?){ this.dataDevolucao = dataDevolucao}
 
-    // Polimorfismo
-    // Essas funções são diferentes em Jogo / Filme
     fun calcularValorAluguel(dias: Int)
     fun exibirDetalhes()
 
     fun alugar(dias: Int){
-        // Uma vez alugado, o item não está mais disponível
-        // O item foi alugado no dia de hoje
-
-        // Se o item já não estiver disponível, não existe data de Devolução
-        if(!disponivel){
-            dataDevolucao = null
+        if(!getDisponibilidade()){
+            setDataDeDevolucao(null)
         }else{
-            disponivel = false
-            dataDevolucao = LocalDate.now().plusDays(dias.toLong());
+            setDisponibilidade(false)
+            setDataDeDevolucao(LocalDate.now().plusDays(dias.toLong()))
         }
     }
 
     fun devolver(){
-        // Uma vez devolvido, o item está novamente disponível
-        // A data de devolução volta a null
-        disponivel = true
-        dataDevolucao = null
+        setDisponibilidade(true)
+        setDataDeDevolucao(null)
     }
-
-
 
     fun listarItensDisponiveis(itens: List<ItemLocadora>){
         println("Mídias disponíveis:")
-        itens.forEach{item ->
-            if(item.disponivel){
-                println(item.titulo)
+        itens.forEach{ item ->
+            if(item.getDisponibilidade()){
+                println(item.getTítulo())
             }
         }
     }
+
     fun listarItensIndisponiveis(itens: List<ItemLocadora>){
         println("Mídias indisponíveis:")
-        itens.forEach{item ->
-            if(!item.disponivel){
-                println(item.titulo)
+        itens.forEach{ item ->
+            if(!item.getDisponibilidade()){
+                println(item.getTítulo())
             }
         }
     }

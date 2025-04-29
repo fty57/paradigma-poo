@@ -13,7 +13,7 @@ class Locacao(
 
     fun getDataDevolucao(): List<String?> {
         return itens.map { item ->
-            item.dataDevolucao?.let { Utils().formatarData(it) }
+            item.getDataDeDevolucao()?.let { Utils().formatarData(it) }
         }
     }
 
